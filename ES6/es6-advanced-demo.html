@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function testLet(x) {
+            let y;
+            if(x===1) {
+                let d = 10;
+                y=2;
+                console.log(d);
+                console.log(y);
+            }
+            
+            console.log(d);
+            console.log(y);
+        }
+
+        // testLet(1);
+        // console.log(y);
+
+
+        //arrow based impl
+        // var multiply = function(x, y) {
+        //     return x*y;
+        // }
+
+        // console.time('ES5');
+        // console.log(multiply(4,5));
+        // console.timeEnd('ES5');
+
+        // let multiply1 = (x, y) => { return x*y };
+        // console.time('ES6');
+        // console.log(multiply1(4,5));
+        // console.timeEnd('ES6');
+
+        //spread operator
+        (function() {
+            //self invoke function syntax
+            console.log("Self invoke without call");
+
+            function log(...params) {
+                console.log("1st param > " + params[0]);
+                console.log("completes params array" + params);
+                params.forEach(element=>console.log(element));
+            }
+
+            log(1,2,3,4,5,6,7,8,9,10,11,12,14,56,34,2,546,58,45,4235,2,43,6765);
+        })();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        //create class constructor in ES6
+
+        class BasicCal {
+            constructor() {
+                console.log("BasicCal object created");
+            }
+            addition(num1, num2) {
+                return num1 + num2;
+            }
+            substraction(num1, num2) {
+                return num1 - num2;
+            }
+            multiplication(num1, num2) {
+                return num1 * num2;
+            }
+            division(num1, num2) {
+                return num1 / num2;
+            }
+            static squareRoot(num) {
+                return Math.sqrt(num);
+            }
+        }
+        
+        class SciCal extends BasicCal {
+           
+
+            log(num) {
+                return Math.log(num);
+            }
+            exp(num) {
+                return Math.exp(num);
+            }
+            sin(num) {
+                return Math.sin(num);
+            }
+            cos(num) {
+                return Math.cos(num);
+            }
+            tan(num) {
+                return Math.tan(num);
+            }
+        }
+
+        //impl prototype here
+        BasicCal.prototype.refNum=200;
+        BasicCal.prototype.CalculateSqrtUsingPrototype=function() {
+            console.log("Calculating square root using prtotype -->");
+            return BasicCal.squareRoot(this.refNum);
+        }
+
+        let s = new SciCal();
+        
+        //calling basic cal operations
+        console.log("Calculating addition --> " + s.addition(2, 3));
+        console.log("Calculating substraction --> " + s.substraction(9, 3));
+        console.log("Calculating multiplication --> " + s.multiplication(5, 8));
+        console.log("Calculating division --> " + s.division(10, 3));
+        console.log("Calculating square root --> " + SciCal.squareRoot(81));
+
+        //calling sci cal operations
+        console.log("Calculating log --> " + s.log(101));
+        console.log("Calculating exp --> " + s.log(50));
+        console.log("Calculating sin --> " + s.log(34));
+        console.log("Calculating cos --> " + s.log(52));
+        console.log("Calculating tan --> " + s.log(31));
+
+        //calling static method
+        console.log("calling static method here -->" + BasicCal.squareRoot(121));
+
+        console.log("calling prototype here -->" + s.CalculateSqrtUsingPrototype());
+
+
+
+        
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

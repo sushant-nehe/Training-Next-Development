@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        //create class constructor in ES6
+
+        class Person {
+
+            #test;
+
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+                this.#test = 100;
+                console.log("Person object is created.");
+                console.log("Name of the Person: " + this. name);
+                console.log("Age of the Person: " + this. age);
+            }
+
+            #stuffPrivateMehthod() {
+                console.log("here is the private method.");
+                return this.#test;
+            }
+
+            getConcatValue() {
+                return this.conCat();
+            }
+    
+            conCat() {
+                console.log("public method here.");
+                return this.name + " with age " + this.age;
+            }
+
+            preMethod() {
+                console.log("preveledged method to get expose the private stuff");
+                return this.#stuffPrivateMehthod();
+            }
+
+            static myStatic() {
+                return "This is static method.";
+            }
+
+        }
+        //class def over here
+
+        //impl prototype here
+        Person.prototype.refTest=200;
+        Person.prototype.sayHello=function() {
+            console.log("call prototype is here -->");
+            return this.refTest;
+        }
+
+        class Student extends Person {
+            testChildRef() {
+                console.log("here is the child impl");
+                return "child mentoh component -->";
+            }
+        }
+
+
+        let s = new Student("Next Session", 3);
+        console.log("Calling public method --> " + s.getConcatValue());
+
+        //call private outside the class
+        console.log("calling private method here -->" + s.preMethod());
+
+        console.log("calling static method here -->" + Person.myStatic());
+
+        console.log("calling prototype here -->" + s.sayHello());
+
+        console.log("calling THE CHILD ONE HERE -->" + s.testChildRef());
+
+
+        
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
